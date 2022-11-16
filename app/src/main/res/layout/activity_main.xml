@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#BDE5EA"
+    android:backgroundTint="#DCE8DD"
+    android:padding="@dimen/margem_padrao"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/calculadoraImc"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/calcularImc"
+        android:textColor="#009688"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#009688"
+        android:hint="@string/nome"
+        android:inputType="text"
+        android:textColor="#050505"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculadoraImc" />
+
+    <EditText
+        android:id="@+id/pesoEmKg"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#009688"
+        android:hint="@string/textPeso"
+        android:inputType="numberDecimal"
+        android:textColor="#050505"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nome" />
+
+    <EditText
+        android:id="@+id/altura"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#009688"
+        android:hint="@string/textAltura"
+        android:inputType="numberDecimal"
+        android:textColor="#050505"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pesoEmKg" />
+
+    <RadioGroup
+        android:id="@+id/rbClassificacaoIdade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/altura">
+
+        <RadioButton
+            android:id="@+id/rbAdulto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#009688"
+            android:text="@string/lblAdulto"
+            android:textColor="#009688" />
+
+        <RadioButton
+            android:id="@+id/rbIdoso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="#009688"
+            android:text="@string/lblIdoso"
+            android:textColor="#009688" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCacular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#009688"
+        android:text="@string/btn_calcular_lbl"
+        app:layout_constraintVertical_bias="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/nome"
+        app:layout_constraintStart_toStartOf="@id/nome"
+        app:layout_constraintTop_toBottomOf="@+id/rbClassificacaoIdade" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
