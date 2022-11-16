@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculaImc(altura: String, peso: String): Double {
-        var alturaDouble = toDouble(altura)
-        var pesoDouble = toDouble(peso)
+        val alturaDouble = toDouble(altura)
+        val pesoDouble = toDouble(peso)
         return pesoDouble.div(alturaDouble.times(alturaDouble))
     }
 
@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         val nome = binding.nome.text.toString()
         if (validarIdade() == "Adulto") {
             return when (calculo) {
-
                 in 0.0..18.499 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " + getString(R.string.baixoPesoAdulto)
                 in 18.5..24.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.pesoNormalAdulto)
                 in 25.0..29.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.sobrePesoAdulto)
