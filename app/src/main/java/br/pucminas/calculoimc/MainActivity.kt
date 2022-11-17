@@ -25,9 +25,13 @@ class MainActivity : AppCompatActivity() {
             val altura = binding.altura.text.toString()
             val peso = binding.pesoEmKg.text.toString()
             if (altura.isNotBlank() && peso.isNotBlank() && validarIdade().isNotBlank() && altura != "0" && peso != "0") {
-                avaliacao = avaliacaoImc(calculaImc(altura = altura, peso = peso)).toString()
+                val calculo = calculaImc(altura = altura, peso = peso)
+                avaliacao = avaliacaoImc(calculo).toString()
+                val idade = validarIdade()
                 val intent = Intent(this, ResultadoActivity::class.java).apply {
                     putExtra(TAG, avaliacao)
+                    putExtra(VAL, calculo)
+                    putExtra(IDA, idade)
                 }
                 startActivity(intent)
             }
@@ -73,7 +77,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val TAG = "PARAMETER"
+        const val TAG = "PARAMETER1"
+        const val VAL = "PARAMETER2"
+        const val IDA = "PARAMETER3"
     }
 
 }
