@@ -1,5 +1,6 @@
 package br.pucminas.calculoimc
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -56,18 +57,18 @@ class MainActivity : AppCompatActivity() {
         val nome = binding.nome.text.toString()
         if (validarIdade() == "Adulto") {
             return when (calculo) {
-                in 0.0..18.499 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " + getString(R.string.baixoPesoAdulto)
-                in 18.5..24.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.pesoNormalAdulto)
-                in 25.0..29.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.sobrePesoAdulto)
-                in 30.0..34.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.classe1)
-                in 35.0..39.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.classe2)
-                else -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " +  getString(R.string.classe3)
+                in 0.0..18.499 -> getString(R.string.baixoPesoAdulto, nome, calculo.toString().substring(0,5))
+                in 18.5..24.999 -> getString(R.string.pesoNormalAdulto, nome, calculo.toString().substring(0,5))
+                in 25.0..29.999 -> getString(R.string.sobrePesoAdulto, nome, calculo.toString().substring(0,5))
+                in 30.0..34.999 -> getString(R.string.classe1, nome, calculo.toString().substring(0,5))
+                in 35.0..39.999 -> getString(R.string.classe2, nome, calculo.toString().substring(0,5))
+                else -> getString(R.string.classe3, nome, calculo.toString().substring(0,5))
             }
         } else {
             return when (calculo) {
-                in 0.0..21.999 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " + getString(R.string.baixoPesoIdoso)
-                in 22.0..27.0 -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " + getString(R.string.pesoNormalIdoso)
-                else -> "Olá senhor(a) $nome, seu IMC é ${calculo.toString().substring(0,5)} " + getString(R.string.sobrePesoIdoso)
+                in 0.0..21.999 -> getString(R.string.baixoPesoIdoso, nome, calculo.toString().substring(0,5))
+                in 22.0..27.0 -> getString(R.string.pesoNormalIdoso, nome, calculo.toString().substring(0,5))
+                else -> getString(R.string.sobrePesoIdoso, nome, calculo.toString().substring(0,5))
             }
         }
     }

@@ -37,11 +37,8 @@ class ResultadoActivity: AppCompatActivity() {
     }
 
     private fun recuperaCorImcIdoso() {
-        val calculo = intent.getStringExtra(VAL)
-        val valor = toDouble(calculo.toString())
-        Log.e("Eta ", valor.toString())
-        var cor = 0
-         cor = when (valor) {
+        val calculo = intent.getDoubleExtra(VAL, 0.0)
+        var cor = when (calculo) {
             in 0.0..21.999 -> getColor(R.color.orange)
             in 22.0..27.0 -> getColor(R.color.green)
             else -> getColor(R.color.red)
@@ -50,10 +47,8 @@ class ResultadoActivity: AppCompatActivity() {
     }
 
     private fun recuperaCorImcAdulto() {
-        val calculo = intent.getStringExtra(VAL)
-        val valor = toDouble(calculo.toString())
-        var cor = 0
-             cor = when (valor) {
+        val calculo = intent.getDoubleExtra(VAL, 0.0)
+            var cor = when (calculo) {
                 in 0.0..18.499 -> getColor(R.color.orange)
                 in 18.5..24.999 -> getColor(R.color.green)
                 in 25.0..29.999 -> getColor(R.color.orange)
@@ -62,10 +57,6 @@ class ResultadoActivity: AppCompatActivity() {
                 else -> getColor(R.color.red)
         }
         binding.texto.setTextColor(cor)
-    }
-
-    private fun toDouble(s: String): Double {
-        return s.toDouble()
     }
 
 }
