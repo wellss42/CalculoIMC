@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         botaoCalcular.setOnClickListener {
             val altura = binding.altura.text.toString()
             val peso = binding.pesoEmKg.text.toString()
-            if (altura.isNotBlank() && peso.isNotBlank() && validarIdade().isNotBlank() && altura != "0" && peso != "0") {
+            if (altura.isNotBlank() && peso.isNotBlank() && validarIdade().isNotBlank() && altura != "0.0" && peso != "0.0") {
                 val calculo = calculaImc(altura = altura, peso = peso)
                 avaliacao = avaliacaoImc(calculo).toString()
                 val idade = validarIdade()
